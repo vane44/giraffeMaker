@@ -63,7 +63,7 @@ This piece of code creates a new object and sets properties upon it, then return
         return this.height > treeHeight;
      };
 ```
-This helper function observes the giraffes height and compares it to the height of the trees in the world. It returns the boolean value from the check.
+This helper function observes the giraffe's `height` and compares it to the `height` of the trees in the world. It returns the boolean value from the check.
 
 ### isHungry();
 
@@ -72,7 +72,7 @@ This helper function observes the giraffes height and compares it to the height 
         return this.hunger > 0;
      };
 ```
-This helper function observes whether the giraffes hunger is greater than 0 and returns the boolean value.
+This helper function observes whether the giraffe's hunger is greater than 0 and returns the boolean value.
 
 
 ### say();
@@ -90,7 +90,7 @@ var say = function(option) {
  };
 ```
 
-This is the say function, a helper for the giraffes dialogue. Rather than litter the code with console.logs, we map all possible strings to an option key. The function returns the string which is mapped to the option passed at calltime.
+This is the `say` function, a helper for the giraffe's dialogue. Rather than litter the code with `console.log`s, we map all possible strings to an option key. The function returns the string which is mapped to the option passed at calltime.
     
 ### eat();
 
@@ -105,9 +105,9 @@ var eat = function() {
 };
 ```
 
-This is the eat function, first it checks a couple of properties on the giraffe that it has been called in context to. If the height of this giraffe is less than 2 it logs that the giraffe is too short to reach the trees. Otherwise if the giraffe is hungry then it reduces the hunger of the giraffe by how tall the giraffe is (taller giraffes have a better ability to browse food). 
+This is the `eat` function. First it checks a couple of properties on the giraffe that it has been called in context to. If the `height` of this giraffe is less than 2 it logs that the giraffe is too short to reach the trees. Otherwise if the giraffe is hungry then it reduces the `hunger` of the giraffe by how tall the giraffe is (taller giraffes have a better ability to `browse` food). 
 
-Note that this function uses the previously defined helper function say() and isHungry(), to check whether the giraffe is hungry and log different choices in dialogue with a clean interface.
+Note that this function uses the previously defined helper function `say()` and `isHungry()`, to check whether the giraffe is hungry and log different choices in dialogue with a clean interface.
 
 ### browse();
 ```javascript
@@ -120,7 +120,7 @@ var browse = function() {
   };
 ```
 
-This function simulates the giraffe browsing the trees. If the giraffe is tall enough it will eat, otherwise it will say it isn't tall enough. Again, note the use of previously defined helper functions allowing this piece of the code to be more readable.
+This function simulates the giraffe browsing the trees. If the giraffe is tall enough it will `eat`, otherwise it will `say` it isn't tall enough. Again, note the use of previously defined helper functions allowing this piece of the code to be more readable.
 
 ## The Journey
 
@@ -163,7 +163,7 @@ You can think about a Class as a mechanism which allows you to create objects wh
 >You can create instances of a Class which share properties and methods.
 
 #### Shared functions - step 1
-The code in the previous maker function creates a new method .shout() for each thing that it creates, attaching this new function to each instance. What are we really trying to do here? Do we want each thing to have a new method of its own? Wouldn't it be cool if they could just share one function which they can inherit from being a thing?
+The code in the previous maker function creates a new method `shout()` for each thing that it creates, attaching this new function to each instance. What are we really trying to do here? Do we want each thing to have a new method of its own? Wouldn't it be cool if they could just share one function which they can inherit on account of being a "thing"?
 
 ```javascript
 var theMaker = function(value) { 
@@ -179,7 +179,7 @@ var shout = function() {
 };
 ```
 
-In this snippet of code, we take the shout functionality out of the maker function, and share it across each instance of "thing". We did this by assigning a property on each thing, which points to the shout variable. Now any time you try to run .shout() on a thing, it will find var shout in the global scope, and run that code.
+In this snippet of code, we take the `shout` functionality out of the maker function, and share it across each instance of "thing". We did this by assigning a property on each "thing", which points to the `shout` variable. Now any time you try to run `shout()` on a "thing", it will find `var shout` in the global scope, and run that code.
 
 #### Why do we need the keyword `this`?
 If we move the functionality outside of the maker function, we lose our previous way of referring to the created object, which was something like this.
@@ -203,23 +203,23 @@ If we move the functionality outside of the maker function, we lose our previous
     newThing.shout(); // "I might not be the thing you wanted."
 ```
 
-Did calling newThing.shout() have the same effect as you expected it to? If not lets step through what happens in this code:
+Did calling `newThing.shout()` have the same effect as you expected it to? If not let's step through what happens in this code:
 
 ##### the maker function
 - creates a new object
-- sets its .ownValue property to the value passed into the function
-- sets a property which points to the shout variable in the global scope
+- sets its `ownValue` property to the value passed into the function
+- sets a property which points to the `shout` variable in the global scope
 - finally, it returns this new object
 
-##### the shout function
-- logs the .ownValue property of theThingToBeMade
-- the property refers to the .ownValue of the last object created
+##### the `shout` function
+- logs the `ownValue` property of the "ThingToBeMade"
+- the property refers to the `ownValue` of the last object created
 
-At newthing.shout()'s calltime, the .ownValue property of the object theThingToBeMade belonged to thatOtherThing. So even though we called the function in the context of newThing, it referred to the property of something else. We need some mechanic which allows us to refer to the correct instance of the class, and the keyword `this` will be that mechanic.
+At `newthing.shout()`'s calltime, the `ownValue` property of the object "theThingToBeMade" belonged to "thatOtherThing". So even though we called the function in the context of `newThing`, it referred to the property of something else. We need some mechanic which allows us to refer to the correct instance of the class, and the keyword `this` will be that mechanic.
 
 #### How does the keyword `this` work?
 
-When asking about how the keyword `this` works you will usually find one of two answers.
+When asking about how the keyword `this` works you will usually find one of two answers:
 
 1. It refers to what is to the left of the dot at calltime.
 2. It's magical.
@@ -228,23 +228,27 @@ When asking about how the keyword `this` works you will usually find one of two 
     shout = function() {
         console.log(this.ownValue);
     };
-    
-    when you run newThing.shout(), this refers to newThing, as it is to the left of the dot at calltime.
-        - JavaScript would interpret this instance of the function call like:
-        
-        shout = function() {
-            console.log(newThing.ownValue);
-        };
-            
-    when you run thatOtherThing.shout(), this refers to thatOtherThing.
-    
-    thatOtherThing.shout(); // "I might not be the thing you wanted."
-    newThing.shout(); // "I am a thing!"
 ```
     
-Using the keyword `this` allows us to refer to the particular instance of the class that we intend to within the shared function. 
+When you run `newThing.shout()`, `this` refers to `newThing`, as `newThing` is to the left of the dot at calltime.
 
-### Sharing functions using extend() - step 2
+JavaScript would interpret this instance of the function call like:
+```javascript
+shout = function() {
+    console.log(newThing.ownValue);
+};
+```
+            
+When you run `thatOtherThing.shout()`, this refers to `thatOtherThing`.
+
+```javascript
+thatOtherThing.shout(); // "I might not be the thing you wanted."
+newThing.shout();       // "I am a thing!"
+```
+    
+Using the keyword `this` allows us to refer to the particular instance of the class that we intend to refer to within the shared function. 
+
+### Sharing functions using `extend()` - step 2
 
 ```javascript
 var extend = function(copyTo, copyFrom) {
@@ -254,10 +258,11 @@ var extend = function(copyTo, copyFrom) {
 };
 ```
     
-The extend function copies every property from one object onto another. This will save you from having to declare each property on the maker function. It will not make a lot of difference in our examples, but imagine if you had 10 or 20 different properties to copy.
+The `extend` function copies every property from one object onto another. This will save you from having to declare each property on the maker function. It will not make a lot of difference in our examples, but imagine if you had 10 or 20 different properties to copy.
 
 ### Prototypal Inheritence
-A prototype allows you to share methods and properties among class members. How this works more precisely is that once you set up a prototype chain, or delegate to a prototype. Any failed lookup on an object will be delegated to its prototype which will be checked for what was looked up on the object. The idea of using a prototype is to have any shared properties or methods on the prototype, allowing all class members to use them. The only property that should stay in the maker function would be one that changes or has a specific value for each instance.
+
+The `prototype` property on JavaScript objects allows you to share methods and properties among class members. How this works more precisely is that once you set up a prototype chain, or delegate to a prototype, any failed lookup on an object will be delegated to its prototype which will be checked for what was looked up on the object. The idea of using a prototype is to have any shared properties or methods on the prototype, allowing all class members to use them. The only property that should stay in the maker function would be one that changes or has a specific value for each instance.
 
 ```javascript
 var maker = function(value) {
@@ -274,7 +279,7 @@ var newThing = maker(4);
 newThing.shout(); // "4"
 ```
     
-Object.create not only creates the new object for us, but also sets up delegation to the prototype that is passed into it. This allows us to create and setup a chain in one line. The prototype in this example is maker.stuffAllThingsShouldHave and looks something like this.
+`Object.create` not only creates the new object for us, but also sets up delegation to the prototype that is passed into it. This allows us to create and setup a chain in one line. The prototype in this example is `maker.stuffAllThingsShouldHave` and looks something like this:
 
 ```javascript
 
@@ -284,30 +289,30 @@ Object.create not only creates the new object for us, but also sets up delegatio
 ```
 
 #### What is a failed lookup?
-When we call .shout() in the context of newThing, the interpreter first looks for a shout method in newThing, this results in a failed lookup. Since we have delegated newThing a prototype, it then looks for a shout method in stuffAllThingShouldHave, it finds that method, and runs it.
+When we call `shout()` in the context of `newThing`, the interpreter first looks for a `shout` method in `newThing`, this results in a failed lookup. Since we have delegated `newThing` a prototype, it then looks for a `shout` method in `stuffAllThingShouldHave`, it finds that method, and runs it.
 
-If we did not set up any prototype delegation, the default delegation is to window.Object. In the same vein, stuffAllThingsShouldHave delegates to window.Object, which completes the prototype chain.
+If we did not set up any prototype delegation, the default delegation is to `window.Object`. In the same vein, `stuffAllThingsShouldHave` delegates to `window.Object`, which completes the prototype chain.
 
 #### Cool things about having a prototype
-There are a couple of advantages to using prototypal inheritence. 
+There are a couple of advantages to using prototypal inheritence.
 
 - You do not have to store a function on each instance of the Class.
 - You can add new methods or properties to the Prototype and they will immediately take effect on all members of the Class.
 
-Where if you were to extend properties from one object to another, if you then wanted to add on a bunch of new methods to the class, they would not be immediately accessible to previously created class members. However with prototypal inheritence, since all failed lookups are searched for on the prototype Object at runtime, a new property added after the creation of a certain class instance can be accessed by that instance.
+Where if you were to extend properties from one object to another, if you then wanted to add on a bunch of new methods to the class, they would not be immediately accessible to previously created class members. However with prototypal inheritence, since all failed lookups are searched for on the prototype object at runtime, a new property added after the creation of a certain class instance can be accessed by that instance.
 
 ### Pseudo-Classical Inheritence
 There is another syntax to setup inheritence in JavaScript called Pseudo-Classical. It is basically another way of creating objects and delegating prototype chains, using the keyword 'new' and 'Prototype'.
 
-#### What happens when I use keyword 'new'?
+#### What happens when I use keyword `new`?
 
-The function following 'new', is run in "constructor mode", these rules apply:
+The function following `new`, is run in "constructor mode." The following rules apply:
 1. Creates a new obj
 2. Sets up prototype delegation
-3. Binds `this` to the new obj
-4. Returns the new obj
+3. Binds `this` to the new object
+4. Returns the new object
 
-You would use 'new' when creating another instance of the class. When creating objects using Pseudo-Classical we need to use a maker function which has more specific rules.
+You would use `new` when creating another instance of the class. When creating objects using Pseudo-Classical we need to use a maker function which has more specific rules.
 
 ```javascript
     var Thing = function(value) {
@@ -320,9 +325,9 @@ You would use 'new' when creating another instance of the class. When creating o
     var otherThing = new Thing(100);
 ```
     
-The maker function we use in Pseudo-Classical does not need to create, return the Object or setup any delegation, as the keyword `this` does the work for us. This allows us to produce very concise maker functions.
+The maker function we use in Pseudo-Classical does not need to create or return an object explicitly or setup any delegation, as the keyword `new` does the work for us. This allows us to produce very concise maker functions.
 
-Here is how the interpreter sees the same function as it is run in constructor mode:
+Here is how the interpreter sees the same function as it is run in "constructor mode":
 
 ```javascript
     var Thing = function(value) {
@@ -336,7 +341,7 @@ Here is how the interpreter sees the same function as it is run in constructor m
     var newThing = new Thing(10);
 ```
 
-Functions are only run in constructor mode when you invoke the keyword new. It is dangerous to create a constructor function intended for use in Pseudoclassical style and running it without using the keyword new. Let's examine what would happen if I were to run it using a prototypal syntax.
+Functions are only run in "constructor mode" when you invoke the keyword `new`. It is dangerous to create a constructor function intended for use in Pseudoclassical style and run it without using the keyword `new`. Let's examine what would happen if I were to run it using a prototypal syntax.
 
 ```javascript
     var protoThing = Thing(10);
@@ -346,4 +351,4 @@ Functions are only run in constructor mode when you invoke the keyword new. It i
     };
 ```
 
-This type of constructor just makes *no sense* when you run it without using the keyword new. The maker function which previously created an object, put properties onto it and returned it now does none of those things. This is one of the dangers of using a Pseudo Classical constructor, and I always name these functions as the classname with a capital letter to avoid confusion.
+This type of constructor just makes *no sense* when you run it without using the keyword new. The maker function which previously created an object, put properties onto it and returned it and now does none of those things. This is one of the dangers of using a Pseudo Classical constructor, and I always name these functions as the classname with a capital letter, which is a widely accepted convention, to avoid confusion.
