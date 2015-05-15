@@ -181,7 +181,7 @@ var shout = function() {
 
 In this snippet of code, we take the shout functionality out of the maker function, and share it across each instance of "thing". We did this by assigning a property on each thing, which points to the shout variable. Now any time you try to run .shout() on a thing, it will find var shout in the global scope, and run that code.
 
-#### Why do we need the keyword 'this'?
+#### Why do we need the keyword `this`?
 If we move the functionality outside of the maker function, we lose our previous way of referring to the created object, which was something like this.
 
 ```javascript
@@ -215,11 +215,11 @@ Did calling newThing.shout() have the same effect as you expected it to? If not 
 - logs the .ownValue property of theThingToBeMade
 - the property refers to the .ownValue of the last object created
 
-At newthing.shout()'s calltime, the .ownValue property of the object theThingToBeMade belonged to thatOtherThing. So even though we called the function in the context of newThing, it referred to the property of something else. We need some mechanic which allows us to refer to the correct instance of the class, and the keyword 'this' will be that mechanic.
+At newthing.shout()'s calltime, the .ownValue property of the object theThingToBeMade belonged to thatOtherThing. So even though we called the function in the context of newThing, it referred to the property of something else. We need some mechanic which allows us to refer to the correct instance of the class, and the keyword `this` will be that mechanic.
 
 #### How does the keyword `this` work?
 
-When asking about how the keyword 'this' works you will usually find one of two answers.
+When asking about how the keyword `this` works you will usually find one of two answers.
 
 1. It refers to what is to the left of the dot at calltime.
 2. It's magical.
@@ -242,7 +242,7 @@ When asking about how the keyword 'this' works you will usually find one of two 
     newThing.shout(); // "I am a thing!"
 ```
     
-Using the keyword this allows us to refer to the particular instance of the class that we intend to within the shared function. 
+Using the keyword `this` allows us to refer to the particular instance of the class that we intend to within the shared function. 
 
 ### Sharing functions using extend() - step 2
 
@@ -304,7 +304,7 @@ There is another syntax to setup inheritence in JavaScript called Pseudo-Classic
 The function following 'new', is run in "constructor mode", these rules apply:
 1. Creates a new obj
 2. Sets up prototype delegation
-3. Binds 'this' to the new obj
+3. Binds `this` to the new obj
 4. Returns the new obj
 
 You would use 'new' when creating another instance of the class. When creating objects using Pseudo-Classical we need to use a maker function which has more specific rules.
@@ -320,7 +320,7 @@ You would use 'new' when creating another instance of the class. When creating o
     var otherThing = new Thing(100);
 ```
     
-The maker function we use in Pseudo-Classical does not need to create, return the Object or setup any delegation, as the keyword 'this' does the work for us. This allows us to produce very concise maker functions.
+The maker function we use in Pseudo-Classical does not need to create, return the Object or setup any delegation, as the keyword `this` does the work for us. This allows us to produce very concise maker functions.
 
 Here is how the interpreter sees the same function as it is run in constructor mode:
 
