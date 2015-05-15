@@ -162,7 +162,7 @@ You can think about a Class as a mechanism which allows you to create objects wh
 
 >You can create instances of a Class which share properties and methods.
 
-#### Shared functions - step one
+#### Shared functions - step 1
 The code in the previous maker function creates a new method .shout() for each thing that it creates, attaching this new function to each instance. What are we really trying to do here? Do we want each thing to have a new method of its own? Wouldn't it be cool if they could just share one function which they can inherit from being a thing?
 
 ```javascript
