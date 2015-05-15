@@ -20,6 +20,7 @@ console.log(Stanley.height)    // 3
 console.log(Stanley.hunger)    // 10
 console.log(Stanley.eat())    // 'ate'
 console.log(Stanley.say('hello'))    // 'hello'
+```
 
 `giraffeMaker` is a function that must allow the user to create a new giraffe Object, taking two arguments, the name and height of the giraffe to be created.
 
