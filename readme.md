@@ -200,7 +200,7 @@ If we move the functionality outside of the maker function, we lose our previous
     var thatOtherThing = maker('I might not be the thing you wanted.');
 
     newThing.ownValue; // evaluates to "I am a thing!"
-    newThing.shout(); // "I might not be the thing you wanted."
+    newThing.shout();  // "I might not be the thing you wanted."
 ```
 
 Did calling `newThing.shout()` have the same effect as you expected it to? If not let's step through what happens in this code:
