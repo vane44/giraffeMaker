@@ -205,13 +205,13 @@ If we move the functionality outside of the maker function, we lose our previous
 
 Did calling `newThing.shout()` have the same effect as you expected it to? If not let's step through what happens in this code:
 
-##### the maker function
+##### The maker function
 - creates a new object
 - sets its `ownValue` property to the value passed into the function
 - sets a property which points to the `shout` variable in the global scope
 - finally, it returns this new object
 
-##### the `shout` function
+##### The `shout` function
 - logs the `ownValue` property of the "ThingToBeMade"
 - the property refers to the `ownValue` of the last object created
 
