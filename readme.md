@@ -1,6 +1,6 @@
 # giraffeMaker
 
-Welcome to giraffeMaker, a repo which explores different methods of constructing new Objects in JavaScript. In this sprint we'll cover:
+Welcome to giraffeMaker, a repo which explores different methods of constructing new Objects in JavaScript. In this sprint you'll cover:
 
 - Maker Functions
 - Sharing of methods
