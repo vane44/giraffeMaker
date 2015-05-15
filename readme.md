@@ -9,15 +9,17 @@ Welcome to giraffeMaker, a repo which explores different methods of constructing
 - Pseudo-Classical Inheritence
 
 
-The Story
+What we will be able to do when we're done
 -----------
 
->###Stanley = giraffeMaker('Stanley', 3)
->- my name should be Stanley,
->- my height should be three meters,
->- I start with a hunger value of 10,
->- I know how to eat(),
->- I know how to say('greet').
+```javascript
+var Stanley = giraffeMaker('Stanley', 3);
+
+console.log(Stanley.name)    // 'Stanley'
+console.log(Stanley.height)    // 3
+console.log(Stanley.hunger)    // 10
+console.log(Stanley.eat())    // 'ate'
+console.log(Stanley.say('hello'))    // 'hello'
 
 `giraffeMaker` is a function that must allow the user to create a new giraffe Object, taking two arguments, the name and height of the giraffe to be created.
 
