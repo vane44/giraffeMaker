@@ -30,10 +30,10 @@ When you are finished you should be able to do the following:
 ```javascript
 var Stanley = giraffeMaker('Stanley', 3);
 
-console.log(Stanley.name)    // 'Stanley'
-console.log(Stanley.height)    // 3
-console.log(Stanley.hunger)    // 10
-console.log(Stanley.eat())    // 'ate'
+console.log(Stanley.name)            // 'Stanley'
+console.log(Stanley.height)          // 3
+console.log(Stanley.hunger)          // 10
+console.log(Stanley.eat())           // 'ate'
 console.log(Stanley.say('hello'))    // 'hello'
 ```
 
