@@ -1,9 +1,9 @@
 giraffeMaker:
 ============
 
-Welcome to giraffeMaker, a repo which explores different methods of constructing new Objects in JavaScript.
+Welcome to giraffeMaker, a repo which explores different methods of constructing new Objects in JavaScript. In this sprint we'll cover:
 
-- Maker Function
+- Maker Functions
 - Sharing of methods
 - Prototypal Inheritence
 - Pseudo-Classical Inheritence
