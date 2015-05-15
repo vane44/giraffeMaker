@@ -9,17 +9,17 @@ Welcome to giraffeMaker, a repo which explores different methods of constructing
 - Pseudo-Classical Inheritence
 
 
-The Story:
+The Story
 -----------
 
->###Stanley = giraffeMaker('Stanley', 3):
+>###Stanley = giraffeMaker('Stanley', 3)
 >- my name should be Stanley,
 >- my height should be three meters,
 >- I start with a hunger value of 10,
 >- I know how to eat(),
 >- I know how to say('greet').
 
-The giraffeMaker is a function that must allow the user to create a new giraffe Object, taking two arguments, the name and height of the giraffe to be created.
+`giraffeMaker` is a function that must allow the user to create a new giraffe Object, taking two arguments, the name and height of the giraffe to be created.
 
 Each giraffe should have three properties:
 
@@ -120,10 +120,10 @@ var browse = function() {
 
 This function simulates the giraffe browsing the trees. If the giraffe is tall enough it will eat, otherwise it will say it isn't tall enough. Again, note the use of previously defined helper functions allowing this piece of the code to be more readable.
 
-The Journey:
+The Journey
 ----------
 
-###The Maker:
+###The Maker
 The first step will be creating some sort of maker function. 
 
 ```javascript
@@ -154,13 +154,13 @@ The function allows you to create instances of these "things", each one could be
     booleanThing.shout(); // "I have my own Value! Let it be known as true!"
 ```
     
-###Sharing functionality:
+###Sharing functionality
 ####What is a class?
 You can think about a Class as a mechanism which allows you to create objects which share properties and functionality that is somewhat unique to them. A Class construct should allow you to create instances of itself, the previous code in the maker function could be considered somewhat like a class as each thing created shared the property of having its own value, and a method which could announce its value. 
 
 >You can create instances of a Class which share properties and methods.
 
-####Shared functions - step one:
+####Shared functions - step one
 The code in the previous maker function creates a new method .shout() for each thing that it creates, attaching this new function to each instance. What are we really trying to do here? Do we want each thing to have a new method of its own? Wouldn't it be cool if they could just share one function which they can inherit from being a thing?
 
 ```javascript
@@ -242,7 +242,7 @@ When asking about how the keyword 'this' works you will usually find one of two 
     
 Using the keyword this allows us to refer to the particular instance of the class that we intend to within the shared function. 
 
-###Sharing functions using extend() - step 2:
+###Sharing functions using extend() - step 2
 
 ```javascript
 var extend = function(copyTo, copyFrom) {
@@ -254,7 +254,7 @@ var extend = function(copyTo, copyFrom) {
     
 The extend function copies every property from one object onto another. This will save you from having to declare each property on the maker function. It will not make a lot of difference in our examples, but imagine if you had 10 or 20 different properties to copy.
 
-###Prototypal Inheritence:
+###Prototypal Inheritence
 A prototype allows you to share methods and properties among class members. How this works more precisely is that once you set up a prototype chain, or delegate to a prototype. Any failed lookup on an object will be delegated to its prototype which will be checked for what was looked up on the object. The idea of using a prototype is to have any shared properties or methods on the prototype, allowing all class members to use them. The only property that should stay in the maker function would be one that changes or has a specific value for each instance.
 
 ```javascript
@@ -286,7 +286,7 @@ When we call .shout() in the context of newThing, the interpreter first looks fo
 
 If we did not set up any prototype delegation, the default delegation is to window.Object. In the same vein, stuffAllThingsShouldHave delegates to window.Object, which completes the prototype chain.
 
-####Cool things about having a prototype:
+####Cool things about having a prototype
 There are a couple of advantages to using prototypal inheritence. 
 
 - You do not have to store a function on each instance of the Class.
@@ -294,7 +294,7 @@ There are a couple of advantages to using prototypal inheritence.
 
 Where if you were to extend properties from one object to another, if you then wanted to add on a bunch of new methods to the class, they would not be immediately accessible to previously created class members. However with prototypal inheritence, since all failed lookups are searched for on the prototype Object at runtime, a new property added after the creation of a certain class instance can be accessed by that instance.
 
-###Pseudo-Classical Inheritence:
+###Pseudo-Classical Inheritence
 There is another syntax to setup inheritence in JavaScript called Pseudo-Classical. It is basically another way of creating objects and delegating prototype chains, using the keyword 'new' and 'Prototype'.
 
 ####What happens when I use keyword 'new'?
