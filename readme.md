@@ -15,8 +15,10 @@ Welcome to giraffeMaker, a repo which explores different methods of constructing
 Each giraffe should have three properties:
 
 - The name of the giraffe
-- The height of the giraffe (meters)
+- The height of the giraffe (feet)
 - How hungry the giraffe is (arbitrary value)
+
+Changed 'meters' to 'feet'
 
 Giraffes have a special set of methods which should only be accessible by them:
 
@@ -28,15 +30,15 @@ This repo contains code which presents a working representation of this Giraffe 
 When you are finished you should be able to do the following:
 
 ```javascript
-var Stanley = giraffeMaker('Stanley', 3);
+var Kevin = giraffeMaker('Kevin', 3);
 
-console.log(Stanley.name)            // 'Stanley'
-console.log(Stanley.height)          // 3
-console.log(Stanley.hunger)          // 10
-console.log(Stanley.eat())           // 'ate'
-console.log(Stanley.say('hello'))    // 'hello'
+console.log(Kevin.name)            // 'Stanley'
+console.log(Kevin.height)          // 3
+console.log(Kevin.hunger)          // 10
+console.log(Kevin.eat())           // 'ate'
+console.log(Kevin.say('hello'))    // 'hello'
 ```
-
+Changed giraffeMaker 'Stanley' to Kevin
 ## The Code Structure
 
 In the repo you will find many examples of code which will have the same functionality, however the methods of instantiating Classes and creating new Objects will be different in each piece of code. All the giraffe makers will need to create new objects, assign the `name` and `height` properties of each giraffe, and share the two communal methods, `eat` and `greet`. There are seven different versions of the giraffeMaker, each with slightly different methods of Class instantiation.
@@ -48,8 +50,8 @@ var giraffeMaker = function(name, height) {
     var giraffe = {};
     giraffe.name = name;
     giraffe.height = height;
-    giraffe.hunger = 10;
-
+    giraffe.hunger = 20;
+Changed number '10' to number '20'
     return giraffe;
 };
 ```
